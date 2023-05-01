@@ -11,16 +11,16 @@ function Chatbot() {
 
     useEffect(() => {
 
-        eventQuery('welcomeToMyWebsite')
+        eventQuery('Welcome')
 
     }, [])
 
-
-    const textQuery = async (text) => {
+        
+    const textQuery = async (text) => {     
 
         //  First  Need to  take care of the message I sent     
         let conversation = {
-            who: 'user',
+            who: '나',
             content: {
                 text: {
                     text: text
@@ -42,7 +42,7 @@ function Chatbot() {
             for (let content of response.data.fulfillmentMessages) {
 
                 conversation = {
-                    who: 'bot',
+                    who: '하르방',
                     content: content
                 }
 
@@ -52,10 +52,10 @@ function Chatbot() {
 
         } catch (error) {
             conversation = {
-                who: 'bot',
+                who: '하르방',
                 content: {
                     text: {
-                        text: " Error just occured, please check the problem"
+                        text: " 에러가 발생했습니다. 문제를 확인해주세요."
                     }
                 }
             }
@@ -80,7 +80,7 @@ function Chatbot() {
             for (let content of response.data.fulfillmentMessages) {
 
                 let conversation = {
-                    who: 'bot',
+                    who: '하르방',
                     content: content
                 }
 
@@ -90,10 +90,10 @@ function Chatbot() {
 
         } catch (error) {
             let conversation = {
-                who: 'bot',
+                who: '하르방',
                 content: {
                     text: {
-                        text: " Error just occured, please check the problem"
+                        text: " 에러가 발생했습니다. 문제를 확인해주세요."
                     }
                 }
             }
@@ -107,7 +107,7 @@ function Chatbot() {
         if (e.key === "Enter") {
 
             if (!e.target.value) {
-                return alert('you need to type somthing first')
+                return alert('하르방에게 아무 말이나 걸어주세요!')
             }
 
             //we will send request to text query route 
@@ -133,7 +133,7 @@ function Chatbot() {
             return <Message key={i} who={message.who} text={message.content.text.text} />
         } else if (message.content && message.content.payload.fields.card) {
 
-            const AvatarSrc = message.who === 'bot' ? <Icon type="robot" /> : <Icon type="smile" />
+            const AvatarSrc = message.who === '하르방' ? <Icon type="robot" /> : <Icon type="smile" />
 
             return <div>
                 <List.Item style={{ padding: '1rem' }}>
