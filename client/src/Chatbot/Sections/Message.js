@@ -1,9 +1,10 @@
 import React from 'react'
-import { List, Icon, Avatar } from 'antd';
+import { List, Avatar } from 'antd';
+import { RobotOutlined, SmileOutlined } from "@ant-design/icons";
 
 function Message(props) {
 
-    const AvatarSrc = props.who ==='하르방' ? <Icon type="robot" /> : <Icon type="smile" />  
+    const AvatarSrc = props.who ==='하르방' ? <RobotOutlined /> : <SmileOutlined />  
 
     return (
         <List.Item style={{ padding: '1rem' }}>

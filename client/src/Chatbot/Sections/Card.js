@@ -1,12 +1,13 @@
 import React from 'react'
-import { Card, Icon } from 'antd';
+import { Card } from 'antd';
+import { EllipsisOutlined } from "@ant-design/icons";
 
 const { Meta } = Card;
 
 function CardComponent(props) {
     return (
         <Card
-            style={{ width: 300 }}
+            style={{ width: 400 }}
             cover={
                 <img
                     alt={props.cardInfo.fields.description.stringValue}
@@ -14,7 +15,7 @@ function CardComponent(props) {
             }
             actions={[
                 <a target="_blank" rel="noopener noreferrer" href={props.cardInfo.fields.link.stringValue}>
-                    <Icon type="ellipsis" key="ellipsis" />
+                    <EllipsisOutlined key="ellipsis" />
                 </a>
             ]}
         >
